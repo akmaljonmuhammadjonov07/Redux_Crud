@@ -1,5 +1,5 @@
 import PlayersAddForm from './players-add-form'
-import PlayersFilter from './players-filter'
+import PlayersFilter from "./players-filter"
 import PlayersList from './players-list'
 
 const App = () => {

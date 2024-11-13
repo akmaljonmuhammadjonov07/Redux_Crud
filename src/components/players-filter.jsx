@@ -10,9 +10,7 @@ import { useHttp } from '../hooks/use-http'
 import Spinner from './spinner'
 
 const PlayersFilter = () => {
-	const { filters, filtersLoadingStatus, activeFilter } = useSelector(
-		state => state
-	)
+	const { filters, filtersLoadingStatus, activeFilter } = useSelector(state => state.filters)
 	const dispatch = useDispatch()
 	const { request } = useHttp()
 
@@ -38,9 +36,9 @@ const PlayersFilter = () => {
 		return filters.map(({ id, label, classes }) => (
 			<button
 				key={id}
-				className={`py-2 px-4 text-white hover:opacity-90 transition-all ${classes} ${
-					activeFilter === label && 'text-black font-bold'
-				}`}
+				className={
+					`py-2 px-4 text-white hover:opacity-90 transition-all ${classes} ${activeFilter === label && "text-black font-bold"}`
+				}
 				onClick={() => dispatch(activeFilterChanged(label))}
 			>
 				{label}

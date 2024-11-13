@@ -1,3 +1,4 @@
+import { createSelector } from '@reduxjs/toolkit'
 import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -13,7 +14,21 @@ import PlayersListItem from './players-list-item'
 import Spinner from './spinner'
 
 const PlayersList = () => {
-	const { filteredPlayers, playersLoadingStatus } = useSelector(state => state)
+	const filteredPlayersSelector = createSelector(
+		state => state.filters.activeFilter,
+		state => state.players.players,
+		(filter, players) => {
+			if(filter === "All") {
+				return players
+			}else {
+				return players.filter(player => player.continent === filter)
+			}
+		}
+	)
+
+	const filteredPlayers = useSelector(filteredPlayersSelector)
+	const playersLoadingStatus = useSelector(state => state.players.playersLoadingStatus)
+
 	const dispatch = useDispatch()
 	const { request } = useHttp()
 
