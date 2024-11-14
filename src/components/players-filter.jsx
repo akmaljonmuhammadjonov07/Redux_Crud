@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-	activeFilterChanged,
 	fetchFilters
 } from '../actions'
 import { useHttp } from '../hooks/use-http'
+import { activeFilterChanged } from '../slices/filters-slice'
 import Spinner from './spinner'
 
 const PlayersFilter = () => {

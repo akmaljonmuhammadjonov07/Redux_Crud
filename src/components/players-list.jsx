@@ -1,11 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit'
 import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-	fetchPlayers,
-	playerDeleted
-} from '../actions'
+import { fetchPlayers } from '../actions'
 import { useHttp } from '../hooks/use-http'
+import { playerDeleted } from '../slices/players-slice'
 import Empty from './empty'
 import Error from './error'
 import PlayersListItem from './players-list-item'
