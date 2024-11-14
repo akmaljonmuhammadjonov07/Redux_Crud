@@ -1,58 +1,28 @@
-export const playersFetching = () => {
-	return {
-		type: 'PLAYERS_FETCHING',
-	}
+import { createAction } from '@reduxjs/toolkit'
+
+export const fetchPlayers = request => dispatch => {
+	dispatch(playersFetching)
+
+	request('http://localhost:8080/players')
+		.then(data => dispatch(playersFetched(data)))
+		.catch(() => dispatch(playersFetchingError))
 }
 
-export const playersFetched = players => {
-	return {
-		type: 'PLAYERS_FETCHED',
-		payload: players,
-	}
+export const fetchFilters = request => dispatch => {
+	dispatch(filtersFetching)
+
+	request('http://localhost:8080/filters')
+		.then(data => dispatch(filtersFetched(data)))
+		.catch(() => dispatch(filtersFetchingError))
 }
 
-export const playersFetchingError = () => {
-	return {
-		type: 'PLAYERS_FETCHING_ERROR',
-	}
-}
+export const playersFetching = createAction('PLAYERS_FETCHING')
+export const playersFetched = createAction('PLAYERS_FETCHED')
+export const playersFetchingError = createAction('PLAYERS_FETCHING_ERROR')
+export const playersCreated = createAction('PLAYER_CREATED')
+export const playerDeleted = createAction('PLAYER_DELETED')
 
-export const filtersFetching = () => {
-	return {
-		type: 'FILTERS_FETCHING',
-	}
-}
-
-export const filtersFetched = filters => {
-	return {
-		type: 'FILTERS_FETCHED',
-		payload: filters,
-	}
-}
-
-export const filtersFetchingError = () => {
-	return {
-		type: 'FILTERS_FETCHING_ERROR',
-	}
-}
-
-export const playersCreated = player => {
-	return {
-		type: 'PLAYER_CREATED',
-		payload: player,
-	}
-}
-
-export const playerDeleted = id => {
-	return {
-		type: 'PLAYER_DELETED',
-		payload: id,
-	}
-}
-
-export const activeFilterChanged = filter => {
-	return {
-		type: 'ACTIVE_FILTER_CHANGED',
-		payload: filter,
-	}
-}
+export const filtersFetching = createAction('FILTERS_FETCHING')
+export const filtersFetched = createAction('FILTERS_FETCHED')
+export const filtersFetchingError = createAction('FILTERS_FETCHING_ERROR')
+export const activeFilterChanged = createAction('ACTIVE_FILTER_CHANGED')

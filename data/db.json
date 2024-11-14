@@ -1,12 +1,6 @@
 {
   "players": [
     {
-      "id": "62e7ea24-1aba-40d0-b160-daa045a56304",
-      "name": "Timur",
-      "country": "Uzbek",
-      "continent": "Africa"
-    },
-    {
       "id": "ae7bd737-d739-45b7-a235-7ec3ab87de50",
       "name": "Samar",
       "country": "Egypt",
@@ -17,6 +11,18 @@
       "name": "Akmaljon",
       "country": "Uzbek",
       "continent": "Europe"
+    },
+    {
+      "id": "a1e1c23f-33df-416d-b49c-1a270a5973f1",
+      "name": "Timur",
+      "country": "Uzbek",
+      "continent": "Asia"
+    },
+    {
+      "id": "db30a68b-2f61-4281-814d-dd5ead2705df",
+      "name": "Timur",
+      "country": "Uzbek",
+      "continent": "America"
     }
   ],
   "filters": [
